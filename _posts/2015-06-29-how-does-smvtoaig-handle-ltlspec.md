@@ -26,7 +26,7 @@ Additionally, there is input `AIGER_NEXT_IGNORE_LTL` that allows disabling
 justice properties (i.e., the justice signals become false).
 Note that there is an assumption on the environment which says
 
-$latex G(IGNORE\_LTL \rightarrow X(IGNORE\_LTL))$
+$$G(ignore_{LTL} \rightarrow X(ignore_{LTL}))$$
 
 if it is false, `AIGER_VALID` also becomes false.
 The justice signals are false if `AIGER_VALID` is false.
@@ -51,4 +51,4 @@ Some questions:
   * why does `smvtoaig` introduce signal `IGNORE_LTL`?
   * why does `smvtoaig` for every input introduce one latch?
 
-If you know a better description of how `smvtoaig` works -- please let me know!
+If you know a better description of how `smvtoaig` works -- let me know!

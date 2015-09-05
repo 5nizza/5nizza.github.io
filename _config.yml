@@ -29,6 +29,8 @@ pages_list:
   Archive: '/archive'
   Feed: '/atom.xml'
 
+markdown: kramdown
+
 # Custom vars
 #version:             2.0.0
 #github:
