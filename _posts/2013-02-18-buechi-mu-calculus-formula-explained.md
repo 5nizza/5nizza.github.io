@@ -1,3 +1,8 @@
+---
+layout: post
+title: Buechi mu calculus formula explained
+---
+
 The original source is: [http://pub.ist.ac.at/gametheory/Lecture4.pdf](http://
 pub.ist.ac.at/gametheory/Lecture4.pdf)
 
