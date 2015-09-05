@@ -1,2 +1,4 @@
 Gemfile*
 _site
+.sass-cache
+TODOs
