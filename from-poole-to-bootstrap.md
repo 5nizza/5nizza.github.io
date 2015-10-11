@@ -17,4 +17,14 @@ How to go from poole to twitter-bootstrap:
 - modify `styles.saas`: add dummy YAML front matter
   (empty one, to force jekyll to process it)
 
+- modify `_layouts/default.html` and add into the end:
+`
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/javascripts/bootstrap.min.js"></script>
+`
+
+
 DONE
