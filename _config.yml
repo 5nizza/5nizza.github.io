@@ -15,7 +15,8 @@ baseurl:             ""
 #
 # We specify the directory for Jekyll so we can use @imports.
 sass:
-  sass_dir:          _sass
+  #sass_dir:          _sass
+  sass_dir:          assets/stylesheets
   style:            :compressed
 
 # About/contact
@@ -25,8 +26,8 @@ author:
   email:             ayrat.khalimov@gmail.com
 
 pages_list:
-  About: '/about'
-  Archive: '/archive'
+  About: '/about/'
+  Archive: '/archive/'
   Feed: '/atom.xml'
 
 markdown: kramdown

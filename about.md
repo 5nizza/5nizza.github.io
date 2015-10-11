@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Ayrat Khalimov
+title: About
 ---
 
 _To teach computers programming_ -- that is my research.
@@ -13,4 +13,4 @@ Some tools:
 - [spec-framework](https://bitbucket.org/art_haali/spec-framework) for specifying synthesis problems
 - SMT-based bounded synthesis tool [party](https://github.com/5nizza/Party)
 
-Contact: ayrat.khalimov at gmail.
+Gmail me at ayrat.khalimov.
