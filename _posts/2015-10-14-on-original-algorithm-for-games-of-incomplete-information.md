@@ -18,7 +18,7 @@ This is similar to the reachability objective.
 Now, John Reif in the paper gives a procedure 
 to decide if the game has the winning strategy for the system.
 And I think it is wrong as it is given
-(or at least works only for deterministic games).
+(or at least does not work for _non_-deterministic games).
 The procedure is to be run on alternating TMs.
 
 __Excurse into alternating TMs__.
