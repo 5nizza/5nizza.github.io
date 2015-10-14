@@ -1,8 +1,7 @@
 ---
 layout: default
+title: On Reif's algorithm for games of incomplete information
 ---
-
-# On Reif's algorithm for games of incomplete information
 
 A note on Reif's paper "Complexity of two player games of incomplete information"
 [^Reif84].
