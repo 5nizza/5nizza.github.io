@@ -5,8 +5,7 @@ How to go from poole to twitter-bootstrap:
 
 - copy the content of bootstrap's folder `assets` into your assets folder
 
-- modify your `_config.yml` -- change `saas_dir`:
-  sass_dir:          assets/stylesheets
+- modify your `_config.yml` -- change `saas_dir` and provide folder to `scss` files
 
 - copy `bootstrap-saas/templates/project/styles.saas` into your root directory
   (replacing your `styles.scss`)
@@ -25,6 +24,5 @@ How to go from poole to twitter-bootstrap:
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/assets/javascripts/bootstrap.min.js"></script>
 `
-
 
 DONE

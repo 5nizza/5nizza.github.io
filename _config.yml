@@ -11,6 +11,7 @@ tagline:             quest for teaching computers
 paginate:            5
 baseurl:             ""
 
+
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
@@ -30,6 +31,8 @@ pages_list:
   Feed: '/atom.xml'
 
 markdown: kramdown
+kramdown:
+  coderay_line_numbers: nil
 
 # Custom vars
 #version:             2.0.0
