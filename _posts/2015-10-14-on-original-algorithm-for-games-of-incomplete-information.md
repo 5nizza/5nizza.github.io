@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: On Reif's algorithm for games of incomplete information
 ---
 
