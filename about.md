@@ -14,3 +14,8 @@ Some tools:
 - SMT-based bounded synthesis tool [party](https://github.com/5nizza/Party)
 
 Gmail me at ayrat.khalimov.
+
+If you have a blog on related topic -- drop a message (here/email/etc.)!    
+If you want to post here (why not?) -- drop a message.)
+
+{% include comments.html %}
