@@ -16,8 +16,7 @@ This is similar to the reachability objective.
 
 Now, John Reif in the paper gives a procedure 
 to decide if the game has the winning strategy for the system.
-And I think it is wrong as it is given
-(or at least does not work for _non_-deterministic games).
+And I think it is wrong as it is given.
 The procedure is to be run on alternating TMs.
 
 __Excurse into alternating TMs__.
@@ -80,7 +79,6 @@ while True:
     P = {p` in P` | vis(p`) = v}                      # L3
 ~~~
 
-Assume that the given game is deterministic ($$\rightarrow$$ has max one successor).
 The algorithm checks, step by step, 
 if the system can force the env into the bad state,
 and if the env can force the system into the bad state.
@@ -97,7 +95,7 @@ Then:
   In a sense, this is what the sys can know.
 
 __Where is the bug?__
-If the game is non-deterministic, then line `L1` is "optimistic".
+The line `L1` looks wrong to me.
 Consider the game graph below with `[..]` states belonging to the env,
 and `(..)` -- to the system, and `..` denotes env's private info.
     
