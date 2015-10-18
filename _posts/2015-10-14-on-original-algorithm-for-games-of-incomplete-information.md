@@ -10,37 +10,39 @@ It has two axioms, without which Reif's algorithm is wrong.
 Below I describe the definition and what happens 
 if we take away the second axiom.
 
-The setup is: a game $$G=(POS_0, POS_1, \rightarrow)$$, with 
-$$POS_0 \cap POS_1 = \emptyset$$, and every position of $$POS_{0/1}$$ have
-private information to the env (player 0), 
-thus moves of the system (player 1) should not depend on it.
-We also require the following two axioms to hold:
+The setup is: a game is $$G=(POS_0, POS_1, \rightarrow)$$, with 
+$$POS_0 \cap POS_1 = \emptyset$$, every position of $$POS_{0/1}$$ have
+private information to the env (player 0).
+Thus moves of the system (player 1) cannot depend on it.
+We also require the following two axioms to hold.
+Let $$W=\{p | p \text{ has no successors} \}$$, then:
 
 1. _If $$p \in POS_1$$ and $$p \rightarrow p'$$, 
-   then $$priv_0(p) = priv_0(p')$$_.
-   I.e., when system moves, 
+   then $$priv_0(p) = priv_0(p')$$_ -- 
+   when system moves, 
    the private to env information does not change.
 
 2. _If $$p,q \in POS_1 \setminus W$$ and $$vis_1(p)=vis_1(q)$$,
-   then $$\{vis_1(p') | p \rightarrow p' \}$$ 
-   and  $$\{vis_1(q') | q \rightarrow q' \}$$._
-   I.e., 
-   for any two states, if their observations equal,
-   then any subsequent states will have the same observations.
+   then 
+   $$\{vis_1(p') | p \rightarrow p' \} = \{vis_1(q') | q \rightarrow q' \}$$_
+   -- for any two states, if their observations are equal,
+   then any subsequent states will have equal observations.
 
-The second axiom surprised me.
-At first, I missed it, 
-and conluded that Reif's algorithm is wrong.
-The puzzle was resolved by my colleague, who pointed to this axiom.
-
-The goal for a player is to drive the opponent into a state with no successors, 
-thus the last who made a move wins!
+The goal for a player is to drive the opponent into a state of $$W$$
+(a state with no successors) -- the last who made a move wins.
 This is similar to the reachability objective.
 
-Why is the axiom important?
-Below I show that without this axiom the algorithm is "buggy".
+The second axiom surprised me.
+At first I missed it, 
+and concluded that Reif's algorithm is wrong --
+namely, I found "game" for which the algorithm outputs a wrong answer.
+But my colleague pointed out that the "game" is not a game -- 
+it doesn't satisfy the axiom. 
+_Lesson learned: whenever found a "bug", read the definitions_.
 
-Reif's algorithm decides if the game has the winning strategy for the system.
+Below I show that Reif's algorithm can fail, 
+if the given game graph doesn't satisfy the second axiom.
+The algorithm decides if the game has the winning strategy for the system.
 The algorithm is to be run on alternating TMs.
 
 __Excurse into alternating TMs__.
@@ -118,8 +120,7 @@ Then:
   provided the visible state is `v`.
   In a sense, this is what the sys can know.
 
-__Where is the "bug"?__
-The line `L1` looks wrong (if not account for the axiom).
+__The "game" (which is not really a game).__
 Consider the game graph below with `[..]` states belonging to the env,
 and `(..)` -- to the system, and `..` denotes env's private info.
     
@@ -131,7 +132,7 @@ and `(..)` -- to the system, and `..` denotes env's private info.
               cB            
 
 In the game the env wins (it goes down in the first step).
-Execute the algorithm:
+However, the algorithm produces:
 
 1. `P={init}`, `P'={cT,cB}`, `V'={c}`, executing line `L0` gives `c` 
    (the only possibility).
@@ -151,7 +152,9 @@ Below is the computation tree for this game:
 
 which evaluates to `true`.
 
-__Lesson learned: whenever found a "bug", read the definitions__.
+This is not the problem of the algorithm though.
+The "game" described above does not satisfy the second axiom -- 
+any successor of $$cT,cB$$ should have resp. equal observations.
 
 __Notes__
 
@@ -164,8 +167,8 @@ __Handy material__
 
 References to "beginner" material on imperfect-information games 
 for studying would be handy! 
-Here are some refs on games in general:
-(without links but you can even find downloadable versions):
+Here are some refs on games in general
+(you can google downloadable versions):
 
   - "Automata Logics, and Infinite Games: A Guide to Current Research" -- 
     for advanced students?
