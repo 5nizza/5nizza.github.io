@@ -151,7 +151,7 @@ Below is the computation tree for this game:
 
 which evaluates to `true`.
 
-_Lesson learned: whenever found a problem, read the definitions_.
+__Lesson learned: whenever found a "bug", read the definitions__.
 
 __Notes__
 
