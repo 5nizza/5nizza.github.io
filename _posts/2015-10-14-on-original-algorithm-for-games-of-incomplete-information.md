@@ -5,19 +5,43 @@ title: On Reif's algorithm for games of incomplete information
 
 A note on Reif's paper "Complexity of two player games of incomplete information"
 [^Reif84].
+I found the definition of games of partial information unusual.
+It has two axioms, without which Reif's algorithm is wrong.
+Below I describe the definition and what happens 
+if we take away the second axiom.
 
-The setup is: we have a game $$G=(POS_1, POS_2, \rightarrow)$$, with 
+The setup is: a game $$G=(POS_0, POS_1, \rightarrow)$$, with 
 $$POS_0 \cap POS_1 = \emptyset$$, and every position of $$POS_{0/1}$$ have
 private information to the env (player 0), 
 thus moves of the system (player 1) should not depend on it.
+We also require the following two axioms to hold:
+
+1. _If $$p \in POS_1$$ and $$p \rightarrow p'$$, 
+   then $$priv_0(p) = priv_0(p')$$_.
+   I.e., when system moves, 
+   the private to env information does not change.
+
+2. _If $$p,q \in POS_1 \setminus W$$ and $$vis_1(p)=vis_1(q)$$,
+   then $$\{vis_1(p') | p \rightarrow p' \}$$ 
+   and  $$\{vis_1(q') | q \rightarrow q' \}$$._
+   I.e., 
+   for any two states, if their observations equal,
+   then any subsequent states will have the same observations.
+
+The second axiom surprised me.
+At first, I missed it, 
+and conluded that Reif's algorithm is wrong.
+The puzzle was resolved by my colleague, who pointed to this axiom.
+
 The goal for a player is to drive the opponent into a state with no successors, 
 thus the last who made a move wins!
 This is similar to the reachability objective.
 
-Now, John Reif in the paper gives a procedure 
-to decide if the game has the winning strategy for the system.
-And I think it is wrong as it is given.
-The procedure is to be run on alternating TMs.
+Why is the axiom important?
+Below I show that without this axiom the algorithm is "buggy".
+
+Reif's algorithm decides if the game has the winning strategy for the system.
+The algorithm is to be run on alternating TMs.
 
 __Excurse into alternating TMs__.
 An alternating TM has universal and existential "choose" commands.
@@ -94,8 +118,8 @@ Then:
   provided the visible state is `v`.
   In a sense, this is what the sys can know.
 
-__Where is the bug?__
-The line `L1` looks wrong to me.
+__Where is the "bug"?__
+The line `L1` looks wrong (if not account for the axiom).
 Consider the game graph below with `[..]` states belonging to the env,
 and `(..)` -- to the system, and `..` denotes env's private info.
     
@@ -127,9 +151,10 @@ Below is the computation tree for this game:
 
 which evaluates to `true`.
 
+_Lesson learned: whenever found a problem, read the definitions_.
+
 __Notes__
 
-- _You know how to fix the algorithm?_ Looks like we need another alternation.
 - The algorithm does not necessary terminate: consider games with cyclic graphs
   (but that looks like a minor problem -- replace `while` loop with `for` loop
    that counts up to "the number of states")
