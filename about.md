@@ -9,13 +9,13 @@ Publications via [DBLP](http://dblp.uni-trier.de/search/author?author=khalimov)
 
 Some tools:
 
-- simple BDD based synthesizer [aisy](https://bitbucket.org/art_haali/aisy)
-- [spec-framework](https://bitbucket.org/art_haali/spec-framework) for specifying synthesis problems
-- SMT-based bounded synthesis tool [party](https://github.com/5nizza/Party)
+- simple BDD based synthesizer [aisy](https://github.com/5nizza/aisy)
+- [spec-framework](https://github.com/5nizza/spec-framework) for specifying synthesis problems
+- SMT-based bounded synthesis tool [party-elli](https://github.com/5nizza/party-elli)
 
 Gmail me at ayrat.khalimov.
 
-If you have a blog on related topic -- drop a message (here/email/etc.)!    
-If you want to post here (why not?) -- drop a message.)
+If you have a blog on related topic -- drop a message.    
+If you want to post here (why not?) -- drop a message.
 
 {% include comments.html %}
