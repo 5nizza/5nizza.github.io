@@ -1,7 +1,6 @@
 ---
 title: Note on Estimator-Based Reactive Synthesis under Incomplete Information
 layout: post
-status: draft
 ---
 
 A short note on [Estimator-Based Reactive Synthesis](http://motesy.cs.uni-bremen.de/pdfs/hscc2015.pdf).
