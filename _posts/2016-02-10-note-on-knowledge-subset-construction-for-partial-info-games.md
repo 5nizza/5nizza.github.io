@@ -3,6 +3,9 @@ title: Note on the Knowledge-based Subset Construction for Solving Games with In
 layout: post
 ---
 
+(__UNFINISHED__: see the item in the list -- it has a gap)
+
+
 This post is about Lemma 4 from [Algorithms for Omega-Regular Games with Incomplete Information](http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-89.pdf).
 The paper contains (among others) two proofs:
 
@@ -30,9 +33,8 @@ where $$\beta'^s$$ is 'derived' from $$\beta^s$$,
 and, finally, show that the path does not satisfy $$\varphi$$,
 which contradicts to the fact that $$\alpha^o$$ is a winning strategy.
 
-I got confused by this proof (Lemma 4)
--- why do we need the Koenig's lemma? Isn't the tree actually a DAG? --
-so came up with an alternative proof.
+At first, I got confused by this proof (Lemma 4), so came up with an alternative proof.
+(update: not anymore -- see [post]({% post_url 2016-02-11-note-2-on-knowledge-subset-construction-for-partial-info-games %})).
 Disclaimer -- it might be wrong (please comment if you see an error).
 
 Before we proceed, let me give an intuition behind the definition
@@ -95,12 +97,6 @@ to construct $$ \alpha^k $$ to win the game $$ G^k $$.
       but intuitively that follows from the definition of the knowledge sets).
 
     - Finally, since any such sequence is a prefix of the winning sequence in $G$,
-      the original sequence in $G^k$ should also be part of the winning sequence.
-      Hm, there is a catch here: before we talked about finite prefixes,
-      but now we should somehow conclude about infinite sequences.
-      That is where the original authors use Koenig's lemma,
-      but in the paper the lemma only helps to prove there is infinite
-      path _in the tree_ they construct, rather than in the game.
-
-What do you think -- do we really need Koenig's lemma as the original proof uses?
+      the original sequence in $G^k$ is also be part of the winning sequence.
+      __But can we actually construct the winning _infinite_ sequence?__
 
