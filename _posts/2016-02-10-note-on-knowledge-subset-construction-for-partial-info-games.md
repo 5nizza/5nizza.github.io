@@ -98,6 +98,9 @@ to construct $$ \alpha^k $$ to win the game $$ G^k $$.
       the original sequence in $G^k$ should also be part of the winning sequence.
       Hm, there is a catch here: before we talked about finite prefixes,
       but now we should somehow conclude about infinite sequences.
+      That is where the original authors use Koenig's lemma,
+      but in the paper the lemma only helps to prove there is infinite
+      path _in the tree_ they construct, rather than in the game.
 
 What do you think -- do we really need Koenig's lemma as the original proof uses?
 
