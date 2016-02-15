@@ -1,5 +1,5 @@
 ---
-title: Some Explanation of the Proof of Lemma 4 from Algorithms for Omega-Regular Games with Incomlete Information
+title: Note on Proof 4 from Algorithms for Omega-Regular Games with Incomlete Information
 layout: post
 ---
 
@@ -10,6 +10,8 @@ The lemma states:
  $$\exists \alpha^o \forall \beta: play_G(\alpha^o,\beta) \models \varphi
   \ \ \ \Rightarrow \ \ \ 
   \exists \alpha^k \forall \beta: play_{G^k}(\alpha^k,\beta) \models \varphi$$
+
+Below is a slightly different version of the proof.
 
 #### High-level proof idea
 The authors prove it by contradiction:
@@ -98,7 +100,7 @@ let's define $s_{i+1}$, $obs_{i+1}$, and $E_{i+1}$:
 - $E_{i+1}$: $\Delta_D$ consists of all $(l_i, \sigma_i, l_{i+1}) \in \Delta_G$
   where $l_i \in s_i$, $l_{i+1} \in s_{i+1}$
 
-Let's see what properties hold for our DAG:
+Let's see what properties hold for the DAG:
 
 - $s_{i+1} \neq \emptyset$.
   This follows from the definition of states in $G^k$
@@ -107,50 +109,44 @@ Let's see what properties hold for our DAG:
    $l_i, \sigma_i, l_{i+1}) \in \Delta_G \cap \Delta_D$.
   In words:
   any state of $s_{i+1}$ is reachable from some state of $s_i$ with $\sigma_i$.
+- $s_0 ... s_i$ is a prefix of some $play_{G^k}(\alpha', \beta^S)$,
+  and satisfies $\neg \varphi$
 
-they define $N_i$ and set $N = \bigcup_i N_i$,
-and also $E_i$ and set $E= \bigcup_i E_i$.
-Intuitively, every set $N_i$ of nodes describes all possible prefixes of length $i$
-when played acc. $\alpha^o$ and $\beta^S$.
-Also, $E_i$ describes possible evolutions of prefixes of length $i$ into prefixes
-of length $i+1$.    
-The definition is inductive:
+Now to the main part: our DAG can be seen as an infinite sequence $s_0 s_1 ...$ [^1],
+which is also a play in $G^k$.
+We need to prove that there is an infinite path in $G$:
 
-- initially, $$N_0 = \{ l_0 \}$$
-- from $N_i$ let's build $N_{i+1}, E_{i+1}$:
-  - $\sigma_i = \alpha^o(\rho)$ for some$^\dagger$ $\rho \in N_i$
-  - let $$s_{i+1} = \beta^S(obs(\rho))$$ for some $\rho \in N_i$, then    
-    $N_{i+1} = \\{\rho \sigma_i l' : \rho \in N_i \land l' \in s_{i+1} \land (Last(\rho), \sigma_i,l') \in \Delta \\}$
-  - $E_{i+1} = \\{ (\rho, \sigma_i, \rho\sigma_i l') : \rho \in N_i \land \rho\sigma_i l' \in N_{i+1} \\}$
+- the DAG has an infinite number of nodes,
+  and from every node there is an edge to the predecessor,
+  hence we can build an infinite number of prefixes of $G$
+  where $\alpha$ plays acc. $\alpha^o$.
+  Let's show there is an infinite path in $G$[^2]:
 
-($\dagger$: it will become clear later that this is well-defined)
+  - start with $l_0$ ($s_0 = \\{l_0\\}$).
+  - through nodes in $s_1$ $s_1$ goes an infinite number of paths.
+    But $s_1$ is finite, hence there is $l_1 \in s_1$ through which
+    goes an infinite number of paths.
+    Take $l_1$.
+  - any such path from $l_1$ goes through $s_2$, $s_2$ is finite,
+    hence there is $l_2 \in s_2$ through which an infinite number
+    of paths passes. Take such $l_3 \in s_3$.
+  - as you see, we can inductively define $l_{i+1}$ from $l_i$:
+    since $s_{i+1}$ is finite, and an infinite number of paths
+    go through it, there is $l_{i+1}$ through which an infinite
+    number of paths passes. Use it.
 
-Below is an illustration:
 
-<img src="{{site.url}}/assets/lemma4-tree-def.jpg" width="600px"/>
+This way we can build path of $G$ inductively:
+note that any $l_i$ is defined, thus we described an infinite play of $G$.
+This play is played acc. $\alpha^o$ and thus should satisfy $\varphi$.
 
-Note that the following properties hold:
+Finally, we built two plays, one in $G^k$, and one in $G$,
+that exhibit the same sequence observations,
+and, on one side, satisfies $\varphi$, and on the other -- vioalates $\varphi$.
+Thus, we derived the sought contradiction.
 
-(c) $\forall \rho_a, \rho_b \in N_i: obs(\rho_a) = obs(\rho_b)$    
-(a) $s_i = \\{ Last(\rho) : \rho \in N_i \\}$      
-(d) $s_i = K(obs(\rho))$ for any $\rho \in N_i$       
-(b) $N_i \subseteq Pref(G)$ and $s_0 \sigma_0 ... \sigma_{i-1} s_i \in Pref(G^k)$     
+Footnotes:
 
-Also:    
-(i) $s_{i+1} \neq \emptyset$    
-(ii) $(s_i, \sigma_i, \sigma_{i+1}) \in \Delta^k$ and $s_{i+1} \subseteq Post(G, \sigma_i, s_i)$      
-(iii) $s_{i+1} \subseteq obs$
+  [^1]:  because the DAG contains an infinite number of nodes
+  [^2]:  the proof essentially repeats that of Konig's lemma
 
-The authors prove them by induction (I did not look at them really).   
-
-Now to the main part:
-this tree is infinite, because $s_{i+1} \neq \emptyset$ by (i) and (a)!
-But it is also finitely-branching, because there is only a finite number
-of states in $G$.
-Hence, by Koenig's lemma there is an infinite path in the tree.   
-From that path we can build an "infinite prefix", i.e., a play of $G$.   
-This play satisfies the objective $\varphi$, because $\alpha^o$ is winning.
-On the other hand, from this infinite play of $G$ we can build
-an infinite play of $G^k$.
-Such play adheres to $\beta^S$ and, thus, should violate $\varphi$.
-Contradiction.
