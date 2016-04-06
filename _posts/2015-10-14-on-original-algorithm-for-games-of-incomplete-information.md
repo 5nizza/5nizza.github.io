@@ -8,7 +8,7 @@ A note on Reif's paper "Complexity of two player games of incomplete information
 I found the definition of games of partial information unusual.
 It has two axioms, without which Reif's algorithm is wrong.
 Below I describe the definition and what happens 
-if we take away the second axiom.
+if we remove the second axiom.
 
 The setup is: a game is $$G=(POS_0, POS_1, \rightarrow)$$, with 
 $$POS_0 \cap POS_1 = \emptyset$$, every position of $$POS_{0/1}$$ have
@@ -18,7 +18,7 @@ We also require the following two axioms to hold.
 Let $$W=\{p | p \text{ has no successors} \}$$, then:
 
 1. _If $$p \in POS_1$$ and $$p \rightarrow p'$$, 
-   then $$priv_0(p) = priv_0(p')$$_ -- 
+   then $$priv_0(p) = priv_0(p')$$_ --
    when system moves, 
    the private to env information does not change.
 

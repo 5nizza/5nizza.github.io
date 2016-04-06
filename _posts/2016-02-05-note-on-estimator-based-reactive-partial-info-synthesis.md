@@ -38,29 +38,28 @@ But..be careful to understand what is a _positional estimator_!
 At the first reading, I misuderstood the definition,
 and did not believe into the completeness.
 
-Here is the definition of an _estimator_ 
-(definition of the "positional" follows) from their paper:
+Here is the definition of an _estimator_ from their paper
+(definition of the "positional" follows):
 
 <img src="{{ site.url }}/assets/estimator-def.png" width="500px"/>
 
-Note that $$\rho_e \rightarrow_s \rho_s$$ means $$\rho_s W \neg \rho_e$$.
-Intuitively, an estimator should satisfy safety-like spec,
+Where $\rho_e=\rho_e(obs,hid)$ and $\rho_s=\rho_s(obs,hid,est)$.
+Note that $\rho_e \rightarrow_s \rho_s$ means $\rho_s W \neg \rho_e$.
+Intuitively, an estimator should satisfy the safety-like spec
 and be independent of hidden values.
 
 Now comes the interesting part:
 
 <img src="{{ site.url }}/assets/positional-estimator-def.png" width="500px"/>
 
-Note:
+Important note:
 
 - when gluing sequences of hidden valuations, 
   the values of hidden variables may jump at the "mixing point"!
   But the _positional_ estimator should tolerate such jumps,
-  and still satisfy $$\rho_s$$.
+  and still satisfy $\rho_s$.
   I don't have an intuition for that yet
   (does this imply that hidden values can jump _all the time_?)
-
-This is important -- I missed this step at first.
 
 The proof of completeness of the first step uses this fact.
 I put it here, but be careful, it might be junk.
