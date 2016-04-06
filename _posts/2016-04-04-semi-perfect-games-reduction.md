@@ -58,6 +58,15 @@ Note that this reduction is very similar to the original reduction from the pape
 where we use numbers to distinguish moves made by the environment
 (thus $(a,2)$ means env and sys simultaneously move $2$ and $a$ resp.).
 
+
+## Other notes
+When defining the semiperfect information, I used item (2)
+stating there should be no partitions for the env states.
+The oringal paper does not introduce this,
+but later in Section 3 they define the strategy mapping from PC to ST games,
+which (I think) is not well-defined without this restriction.
+
+
 #####Footnotes
 
 [^fn1]: "The system wins in symmetrically defined game iff it wins in the asymmetric version",
