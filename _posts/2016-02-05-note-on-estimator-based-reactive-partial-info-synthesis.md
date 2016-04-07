@@ -8,11 +8,11 @@ I was looking for complexity results of computing memory-less strategies
 under incomplete information, and stumbled upon this paper.
 
 The popular practical synthesis method, for GR1 specifications, 
-is PTIME (wrt. game arena size).
+is PTIME (from now on: wrt. game arena size).
 In practice we often get incomplete information about the surroundng,
 for example:
 a robot may not have a full info about the surrounding,
-or its sensors may be faulty/noisy.
+or its sensors may be noisy.
 Unfortunately, the complexity of the reactive synthesis under incomplete information
 is EXPTIME, which is often impractical.
 Can we get PTIME?
@@ -31,6 +31,42 @@ The synthesis procedure is divided into two steps:
 1. synthesize a _positional estimator_
 2. synthesize the full system provided the estimator
 
+The following picture is from their paper describes the system we want to synthesize:
+
+<img src="{{ site.url }}/assets/estimator-synthesis-overview.png" width="300px"/>
+
+where $inp$, $est$, $act$, and $hid$ are input, esimator, output, and hidden variables.
+
+Now let's look what are the specs for estimator and controller.
+In the original approach, when we have only one component
+(not separated into estimator and controller),
+we have LTL spec $\varphi(inp, act, hid)$ that talks about $inp$, $act$, and $hid$
+variables.
+In the separated system, we need two specs, one for estimator, and one for controller.
+
+The estimator spec:
+
+- the user has to provide $\rho_e(inp, act, hid)$ -- formula over
+  current and next values of variables $inp$, $act$, $hid$.
+  The formula's intent is to describe assumptions about behaviour of hidden values.
+
+- the user has to provide $\rho_s(inp, act, hid, est)$ -- formula over
+  current and next values of $inp$, $act$, $hid$, and $est$.
+  The formula's intent is to describe what kind of estimations we want to have.
+
+- thus, the estimator spec
+  $EST \models \rho_s(inp,act,hid,est) \ \text{W} \neg \rho_e(inp,act,hid)$
+
+The controller spec:
+given the original spec $\varphi(inp, act, hid)$ for non-separated components,
+the new controller spec is $CON \models EST \rightarrow \varphi'(inp, act, est)$,
+which means that the controller needs to satisfy $\varphi'$ only on runs generated
+by the estimator.
+Additionally, $\varphi'$ should be such that
+$\varphi'(inp, act, est) \land \text{G}\rho_e \land \text{G}\rho_s \rightarrow \varphi(inp, act, hid)$.
+_It is user responsibility to find such $\varphi'$!_
+
+Now back to the synthesis steps (1) and (2).
 Both steps use the synthesis under full information, and are PTIME 
 (they use GR1 procedure).
 Both steps are complete.
@@ -123,7 +159,7 @@ Proof Footnotes:
 <<
 ~~~
 
-### Footnotes:
+### Footnotes
 
 [^2]: no, hidden values cannot jump _all_ the time, only once.
     By "jump" I mean that around the gluing point env might violate $\rho_e$.
