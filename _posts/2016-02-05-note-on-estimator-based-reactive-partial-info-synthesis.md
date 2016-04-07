@@ -3,9 +3,9 @@ title: Note on Estimator-Based Reactive Synthesis under Incomplete Information
 layout: post
 ---
 
-A short note on [Estimator-Based Reactive Synthesis](http://motesy.cs.uni-bremen.de/pdfs/hscc2015.pdf).
 I was looking for complexity results of computing memory-less strategies 
-under incomplete information, and stumbled upon this paper.
+under incomplete information, and stumbled upon this paper:
+[Estimator-Based Reactive Synthesis](http://motesy.cs.uni-bremen.de/pdfs/hscc2015.pdf).
 
 The popular practical synthesis method, for GR1 specifications, 
 is PTIME (from now on: wrt. game arena size).
