@@ -17,12 +17,12 @@ Unfortunately, the complexity of the reactive synthesis under incomplete informa
 is EXPTIME, which is often impractical.
 Can we get PTIME?
 
-In the paper, the authors suggest to loose completeness at the cost of PTIME procedure.
+In the paper, the authors suggest to lose completeness but gain the PTIME procedure.
 But the degree of lost completeness is somewhat "manageable" by designers:
 designers specify what information should be tracked from the surroundings
 (thus, we use human expertise).
 
-In other words, in the EXPTIME procedure, we automatically track as much as possible.
+In other words, in the complete (EXPTIME) procedure, we automatically track everything possible.
 If something can be learned, we learn it.
 In the proposed procedure, designers restrict what should actually be tracked.
 
@@ -35,8 +35,9 @@ Both steps use the synthesis under full information, and are PTIME
 (they use GR1 procedure).
 Both steps are complete.
 But..be careful to understand what is a _positional estimator_!
-At the first reading, I misuderstood the definition,
-and did not believe into the completeness.
+(and that is where we lose completeness)
+At first, I misuderstood the definition,
+and did not believe in the completeness (wrt. positional esimators).
 
 Here is the definition of an _estimator_ from their paper
 (definition of the "positional" follows):
@@ -59,7 +60,7 @@ Important note:
   But the _positional_ estimator should tolerate such jumps,
   and still satisfy $\rho_s$.
   I don't have an intuition for that yet
-  (does this imply that hidden values can jump _all the time_?)
+  (does this imply that hidden values can jump _all the time_?[^2])
 
 The proof of completeness of the first step uses this fact.
 I put it here, but be careful, it might be junk.
@@ -117,8 +118,12 @@ either
 ⇔
 the assumption (that we miss a PE strategy) is false.
 
-<<
-Footnotes:
+Proof Footnotes:
 [^1]:  in the beginning, we should consider only such (o,e)->(o',e')..
+<<
 ~~~
 
+### Footnotes:
+
+[^2]: no, hidden values cannot jump _all_ the time, only once.
+    By "jump" I mean that around the gluing point env might violate $\rho_e$.
