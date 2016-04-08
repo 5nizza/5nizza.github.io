@@ -67,7 +67,7 @@ but later in Section 3 they define the strategy mapping from PC to ST games,
 which (I think) is not well-defined without this restriction.
 
 
-#####Footnotes
+##Footnotes
 
 [^fn1]: "The system wins in symmetrically defined game iff it wins in the asymmetric version",
       because, intuitively,

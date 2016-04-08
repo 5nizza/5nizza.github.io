@@ -68,13 +68,14 @@ _It is user responsibility to find such $\varphi'$!_
 
 Now back to the synthesis steps (1) and (2).
 Both steps use the synthesis under full information, and are PTIME 
-(they use GR1 procedure).
+(the first one uses synthesis for safety specs, the second uses GR1 procedure).
 Both steps are complete.
 But..be careful to understand what is a _positional estimator_!
 (and that is where we lose completeness)
 At first, I misuderstood the definition,
 and did not believe in the completeness (wrt. positional esimators).
 
+## Positional Estimators 
 Here is the definition of an _estimator_ from their paper
 (definition of the "positional" follows):
 
@@ -87,7 +88,7 @@ and be independent of hidden values.
 
 Now comes the interesting part:
 
-<img src="{{ site.url }}/assets/positional-estimator-def.png" width="500px"/>
+<img src="{{ site.url }}/assets/positional-estimator-def2.png" width="500px"/>
 
 Important note:
 
@@ -98,7 +99,34 @@ Important note:
   I don't have an intuition for that yet
   (does this imply that hidden values can jump _all the time_?[^2])
 
-The proof of completeness of the first step uses this fact.
+Finally, to the positonal estimators:
+
+<img src="{{ site.url }}/assets/positional-estimator-def3.png" width="500px"/>
+
+Let's spend some time with def 3.
+State space of the positional estimator consists of pairs $(act,inp,est)$
+(where $obs = (inp,act)$).
+Later, we synthesize an estimator using two phases.
+First, compute set $R$ of reachable states that satisfy $(\rho_e,\rho_s)$.
+Second, compute the transition relation $\rho_u$ of the positional estimator as:
+$$
+\rho_u = \{ ((o,e),(o',e')) \in Obs \times Est \ | \ \forall h,h':\\
+            (o,e,h) \in R \land ((o,h),(o',h')) \in \rho_e
+            \rightarrow
+            ((o,e,h),(o',e',h')) \in \rho_s\}$$
+
+Intuitively: the game arena when synthesizing estimators is $Obs\times Est \times Hid$,
+but positional estimators can depend only on $Obs \times Est$
+(and don't have any other memory).
+Thus, their strategy should abstract away $Hid$.
+To do so, we remove from estimator transition relation $\rho_u$ any
+transiton $(o,e) \rightarrow (o',e')$ that can have $h,h'$ with
+$((o,e,h), (o',e',h')) \models \rho_e \land \neg \rho_s$.
+
+
+## Proof of Completeness
+The proof of completeness of the first step (synthesis of positional estimators)
+uses the "important note" we saw before.
 I put it here, but be careful, it might be junk.
 
 ~~~
