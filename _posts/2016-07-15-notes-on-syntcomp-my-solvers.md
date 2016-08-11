@@ -7,7 +7,7 @@ layout: post
 
 # SDF
 
-(raw version at https://github.com/5nizza/sdf)
+(raw version at [https://github.com/5nizza/sdf]())
 
 Implementation of the fix-point computation for safety games.
 Plain implementation without any new optimizations:
@@ -55,7 +55,7 @@ Plain implementation without any new optimizations:
 
 # party-elli
 
-(https://github.com/5nizza/party-elli)
+([https://github.com/5nizza/party-elli]())
 
 Implementation of the bounded synthesis approach originally by Schewe Finkbeiner:
 
