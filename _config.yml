@@ -29,10 +29,10 @@ pages_list:
   Feed: '/atom.xml'
 
 markdown: kramdown
-kramdown:
-  coderay_line_numbers: nil
+highlighter: pygments
 
 # Custom vars
 #version:             2.0.0
 #github:
 #  repo:              https://github.com/5nizza/
+#
