@@ -26,4 +26,4 @@ And finally I hope to work with Sven on robots --- wanna try new collaboration, 
 But instead of doing all these stuff, I just watched movie "Riverthief",
 and read [blog](http://www.raleighcain.com/blog/) by Railegh Cain.
 Moving. Fresh air. Life. Positive eye.
-I still feel the air flowing through the hand out of the car window.
+I still feel the air flowing through the fingers out of the car window.
