@@ -24,6 +24,6 @@ Will try to visit Vienna to talk with guys --- that is more fun than reading alo
 And finally I hope to work with Sven on robots --- wanna try new collaboration, slightly new culture. Getting out of my shelf!
 
 But instead of doing all these stuff, I just watched movie "Riverthief",
-and read blog by Railegh Cain.
-Great. Fresh air. Life. Positive eye.
-I still feel the air flowing through her hand out of the car window.
+and read [blog](http://www.raleighcain.com/blog/) by Railegh Cain.
+Moving. Fresh air. Life. Positive eye.
+I still feel the air flowing through the hand out of the car window.
