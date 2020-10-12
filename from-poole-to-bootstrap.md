@@ -1,6 +1,6 @@
 How to go from poole to twitter-bootstrap:
 
-- clone twitter-bootstrap saas version from 
+- clone twitter-bootstrap saas version from
   https://github.com/twbs/bootstrap-sass
 
 - copy the content of bootstrap's folder `assets` into your assets folder

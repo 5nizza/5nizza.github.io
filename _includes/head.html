@@ -23,6 +23,11 @@
   <!-- RSS -->
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
 
+  <!-- collecting tags -->
+  {% if site.tags != "" %}
+    {% include collecttags.html %}
+  {% endif %}
+
 <!-- latex support -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
