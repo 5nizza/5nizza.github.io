@@ -29,7 +29,7 @@ pages_list:
   Feed: '/atom.xml'
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 # Custom vars
 #version:             2.0.0
