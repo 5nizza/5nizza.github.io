@@ -53,8 +53,14 @@ __Synthesis approach__:
   Mmm, unclear.
 
 
-Other questions:
+Other notes and questions:
 
+- The specification of the music player does not _need_ functional terms, etc.,
+  and can be encoded using standard Boolean signals:
+  you only need one Boolean variable to remember the state (they use `Ctrl` cell for that)
+  (well, this seems to hold for all their benchmarks in table 1, but
+   (a) you don't know this beforehand?
+   (b) adding such variables may convolute the spec and dilute the meaning?).
 - did they solve parameterised benchmarks more efficiently? (e.g., they have a lift, is it parameterised?)
 
 
