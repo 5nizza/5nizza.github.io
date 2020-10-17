@@ -6,7 +6,7 @@ layout: post
 
 \
 
-[Paper link](link)
+[Paper link](http://www.swenjacobs.com/publications/VMCAI12.pdf)
 
 They consider the standard LTL synthesis problem of finding an implementation from a given LTL formula.
 They have three phases, `SOLVE`, `CHECK`, `REFINE` (I think those are typical for CEGIS).
@@ -55,4 +55,5 @@ I am not sure this approach is more efficient than doing it all at once, but who
 What I do like is that using BDDs gives you a symbolic witness
 (although you have to de-symbolise it by encoding into a tree).
 
+(The paper also uses white-box and black-box processes and manages to synthesise AMBA.)
 
