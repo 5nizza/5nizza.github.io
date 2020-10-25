@@ -16,7 +16,7 @@ should or can happen during an execution
 These scenarios can be guarded by conditions on the variables:
 "if the condition on the variables hold, then the following sequence of events should/can happen".
 It appears to me that this can be encoded using CTL\*.
-So, in this sense, the contribution is more in the language itself:
+So, in this sense, the contribution is more in the idea of using this language and how the language should be written:
 how the sequences should look like, which kind of lines to use (dotted or solid or dashed etc.)
 for drawing these diagrams.
 (The synthesis from LCSs would be a kind of distributed synthesis from CTL\* specifications.)
