@@ -1,53 +1,38 @@
 #!/usr/bin/env python
 
-'''
-tag_generator.py
-
-Copyright 2017 Long Qian
-Contact: lqian8@jhu.edu
-
-This script creates tags for your Jekyll blog hosted by Github page.
-No plugins required.
+"""
+This script creates tags for jekyll blog.
 Source:
-blog post:
-http://longqian.me/2017/02/09/github-jekyll-tag/
-code:
-https://github.com/qian256/qian256.github.io/blob/master/tag_generator.py
-'''
+Inspired by http://longqian.me/2017/02/09/github-jekyll-tag/
+"""
 
 import glob
 import os
+import ast
 
 post_dir = '_posts/'
 tag_dir = 'tag/'
 
-filenames = glob.glob(post_dir + '*md')
+file_names = glob.glob(post_dir + '**/*.md', recursive=True)
 
-total_tags = []
-for filename in filenames:
-    f = open(filename, 'r', encoding='utf8')
-    crawl = False
-
-for dir_name, subdir_list, file_list in os.walk(post_dir):
-    for file in file_list:
-        f = open(os.path.join(dir_name, file), 'r', encoding='utf-8')
-        crawl = False
-        for line in f:
-            if crawl:
-                current_tags = line.strip().split()
-                if current_tags[0] == 'tags:':
-                    total_tags.extend(current_tags[1:])
-                    crawl = False
-                    break
-            if line.strip() == '---':
-                if not crawl:
-                    crawl = True
-                else:
-                    crawl = False
-                    break
-        f.close()
-
-total_tags = set(total_tags)
+tags = set()
+for file in file_names:
+    f = open(file, 'r')
+    inside_header = False
+    for line in f:
+        line = line.strip()
+        if line == '---':
+            if inside_header:
+                break  # continue to the next file
+            inside_header = True
+        if line.startswith('tags:'):
+            tags_token = line[5:].strip()
+            if tags_token.startswith('['):
+                new_tags = ast.literal_eval(tags_token)
+            else:
+                new_tags = tags_token.split()
+            tags.update(new_tags)
+    f.close()
 
 old_tags = glob.glob(tag_dir + '*.md')
 for tag in old_tags:
@@ -56,11 +41,12 @@ for tag in old_tags:
 if not os.path.exists(tag_dir):
     os.makedirs(tag_dir)
 
-for tag in total_tags:
+for tag in tags:
     tag_filename = tag_dir + tag + '.md'
     f = open(tag_filename, 'a')
     write_str = '---\nlayout: tagpage\ntitle: \"Tag: ' + tag + '\"\ntag: ' + tag + '\nrobots: noindex\n---\n'
     f.write(write_str)
     f.close()
-print("Tags generated, count", total_tags.__len__())
 
+print("Tags generated ({count}): {tags}".format(count=len(tags),
+                                                tags=', '.join(tags)))
