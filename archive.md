@@ -9,8 +9,8 @@ layout: page
     {% assign t = tag | first %}
     {% assign posts = tag | last %}
     <li>
-      <a href="/tag/{{ t | replace:' ','-'}}">
-        {{t | replace:' ','-' }}
+      <a href="/tag/{{ t }}">
+        {{t }}
         <span>({{ posts | size }})</span>
       </a>
     </li>
