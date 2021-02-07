@@ -29,8 +29,6 @@ pages_list:
   Feed: '/atom.xml'
 
 markdown: kramdown
-kramdown:
-   math_engine: mathjax
 highlighter: rouge
 
 # Custom vars
