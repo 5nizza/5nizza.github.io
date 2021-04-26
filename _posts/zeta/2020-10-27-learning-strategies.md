@@ -1,6 +1,6 @@
 ---
 title: "Applications of Automata Learning in Verification and Synthesis"
-tags: ['learning', 'safety games']
+tags: [learning, 'safety games']
 layout: post
 ---
 

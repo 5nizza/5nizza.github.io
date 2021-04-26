@@ -1,7 +1,7 @@
 ---
 title: Neider's work on learning
 layout: post
-tags: [learning]
+tags: ['learning']
 ---
 
 Daniel Neider has lots of papers on learning, here is just a brief note

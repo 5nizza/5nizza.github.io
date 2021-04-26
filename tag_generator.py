@@ -8,7 +8,6 @@ Inspired by http://longqian.me/2017/02/09/github-jekyll-tag/
 
 import glob
 import os
-import ast
 
 post_dir = '_posts/'
 tag_dir = 'tag/'
@@ -28,7 +27,9 @@ for file in file_names:
         if line.startswith('tags:'):
             tags_token = line[5:].strip()
             if tags_token.startswith('['):
-                new_tags = ast.literal_eval(tags_token)
+                tags_token = tags_token.strip('[]')
+                new_tags = [l.strip().strip(" "+"'"+'"')
+                            for l in tags_token.split(',')]
             else:
                 new_tags = tags_token.split()
             tags.update(new_tags)
