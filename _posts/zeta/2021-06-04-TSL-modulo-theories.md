@@ -32,6 +32,8 @@ Their results:
 - They also provide an [implemtation][1]: the tool uses SPOT for coversion (some kind of syntactic conversion).
   They have (seemingly simple) [benchmarks][2].
 
+See also logics: $FO2(\equiv, >, +1)$, LTL with freeze quantifier, VLTL (but they don't study satisfiability -- only MC), Constraint LTL and LRV.
+
 
 [1]: https://github.com/reactive-systems/tsl-satisfiability-modulo-theories/
 [2]: https://github.com/reactive-systems/tsl-satisfiability-modulo-theories/tree/master/benchmarks
