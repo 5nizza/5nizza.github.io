@@ -26,12 +26,15 @@ $\forall x. req(x) \rightarrow \exists y. y>x \land grant(y) \land x \equiv y$,
 where the equivalence relation $\equiv$ and the linear order relation are _given_.
 Since these relations are given, we do not need to axiomatise them, and
 the whole formula uses only two variables.
-Such logics were very well studied and denoted $FO^2(<,\equiv)$;
-note that you should be careful about whether $<$ is a successor relation (aka 'next element') <!---->
-or it is a linear order.
-(Another note: you cannot specify succ using linear order in $FO^2$, you will need three variables).
+Such logics were very well studied and denoted $FO^2(\equiv,<,+1)$.
+Note: the operators $<$ and $+1$ <!----> are used to compare positions in a word,
+and $\equiv$ is used to express that data in those positions are equal.
+(Another note: you cannot specify $+1$ using the linear order in $FO^2$, as this requires _three_ variables).
+Satisfiability of $FO^2(\equiv,<,+1)$ is decidable, see [Bojańczyk et al.: Two-variable logic on words with data].
 
-Conclusion:
-the quest of decidable fragments of logic with data that can specify the arbiter is open!
+Question:  
+__How can we use $FO^2(\equiv,<,+1)$ for synthesis?__
 
+
+(Update 2022: added remark on satisfiability of _that_ FO2 logic.)
 

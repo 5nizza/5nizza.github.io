@@ -29,7 +29,7 @@ Their results:
   Such automata use _guards_ and _updates_ on the transitions.
   They show there is an algorithm to convert any formula to such an automaton.
   (which is interesting, actually, because I there is no such complete translation in the related case of register automata and logic with variables)
-- They also provide an [implentation][1]: the tool uses SPOT for coversion (some kind of syntactic conversion).
+- They also provide an [implemtation][1]: the tool uses SPOT for coversion (some kind of syntactic conversion).
   They have (seemingly simple) [benchmarks][2].
 
 
