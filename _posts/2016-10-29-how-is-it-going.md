@@ -10,7 +10,7 @@ The last moment I found a screaming bug in the prototype implementation --- hope
 That week is gone, and now I am into teaching activity.
 Gave a intro lecture (had to replace my prof) on Valgrind's Memcheck tool.
 Refreshing that old stuff on stack/heap was fun --- I was never really tought this properly --- that was double fun!
-I like lecturing when I know the topic well.
+I like teaching when I know the topic well (update 2024: that is really the key for me).
 
 Now moved into the reviewing phase --- got one VMCAI's paper.
 Haven't read it though, and only one day is left... will push myself very hard tomorrow!
