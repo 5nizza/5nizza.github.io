@@ -65,3 +65,6 @@ P(|mErr(h) - mErr(h,D)| > \epsilon) < 2 |H| e^{-2|D|\epsilon^2}
 $$
 <br/>
 
+Quite a useful material source is (for beginners):
+https://people.orie.cornell.edu/mru8/orie4741/lectures.html
+
