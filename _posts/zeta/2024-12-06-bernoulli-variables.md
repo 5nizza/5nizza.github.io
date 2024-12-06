@@ -5,7 +5,7 @@ layout: post
 ---
 
 __Definition__:
-Given $N$, variables $X_1,\ldots,X_N \in \{0,1\}$ are Bernoulli variables if they were drawn independently from some fixed distribution.
+Given $N$, variables $X_1,\ldots,X_N \in \\{0,1\\}$ are Bernoulli variables if they were drawn independently from some fixed distribution.
 
 __Question__:
 Suppose we uniformly-randomly pick a subset $D=\{Y_1,\ldots,Y_N\}$ of size $N$ from some fixed population set.
@@ -49,6 +49,7 @@ That is however exactly where the problem lies:
 the dependendence of $g$ on $D$ implies that
 $err(g,x_1), err(g,x_2), \ldots$ depend on each other,
 because $err(g,x_i) = err(h_1,x_i)$ implies $err(g,x_{i+1}) = err(h_1,x_{i+1})$.
+
 
 
 
