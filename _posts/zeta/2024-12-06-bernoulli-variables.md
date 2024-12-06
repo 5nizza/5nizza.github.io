@@ -50,18 +50,18 @@ To use the inequality,
 we need to show that $err(g,x_1),err(g,x_2),\ldots,err(g,x_N)$ are Bernoulli variables,
 where $g$ depends on the choice of $D=\\{x_1,\ldots,x_N\\}$.
 That is however exactly where the problem lies:
-the dependendence of $g$ on $D$ implies that
+the dependence of $g$ on $D$ implies that the variables
 $err(g,x_1), err(g,x_2), \ldots,err(g,x_N)$ depend on each other,
-because $err(g,x_i) = err(h_1,x_i)$ implies $err(g,x_{i+1}) = err(h_1,x_{i+1})$.
-
-
-
-
+because $err(g,x_i) = err(h_1,x_i)$ implies $err(g,x_{i+1}) = err(h_1,x_{i+1})$ and similarly for $h_2$.
+Therefore, it is _not_ true that for all error values $v_1,v_2$:
+$P(A \mid B) = P(A) \cdot P(B)$,
+where the event $A$ is $err(g,x_i)=v_1$ and the event $B$ is $err(g,x_{i+1})=v_2$.
+Note that $err(g,x_i)$ and $err(g,x_{i+1})$ are -- althoug not independent -- are drawn from the _same_ distribution.
 
 The correct generalization bound for the case of several hypothesis $H$ is:
 <br/>
 $$
-P(|mErr(h) - mErr(h,D)| < \epsilon) > 2 |H| e^{-2|D|\epsilon^2}
+P(|mErr(h) - mErr(h,D)| > \epsilon) < 2 |H| e^{-2|D|\epsilon^2}
 $$
 <br/>
 
