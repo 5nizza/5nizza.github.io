@@ -27,7 +27,7 @@ Suppose $X_1,...,X_N$ are Bernoulli random Boolean variables (taking values 0 or
 Then the Hoeffding's inequality says:
 <br/>
 $$
-P(|M - E(M)| > \epsilon) < 2 e^{-2|N|\epsilon^2}
+P(|M - E(M)| > \epsilon) < 2 e^{-2N\epsilon^2}
 $$
 <br/>
 where $M = \frac{1}{N}(X_1+\ldots+X_N)$ is the mean average of $X_1,\ldots,X_N$, and $E(M)$ is the expected mean average
